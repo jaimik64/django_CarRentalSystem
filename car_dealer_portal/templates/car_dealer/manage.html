@@ -1,0 +1,33 @@
+{% extends 'car_dealer/base.html' %}
+{% load static %}
+{% block content %}
+<div class="text-white">
+
+
+<h4 class="text-center text-white" style="padding-top:50">Your Vehicles</h4>
+<div style="padding:50">
+  
+  <tbody>
+    <div class="card-deck">
+
+  {% for vehicle in vehicle_list %}
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{MEDIA_URL}}{{vehicle.img.url}}" alt="Card image cap">
+      <div class="card-body text-dark">
+        <h5 class="card-title">{{vehicle.car_name}}</h5>
+        <p class="text-dark">Capacity: {{vehicle.capacity}}, Color: {{vehicle.color}}</p>
+        <form action = "/car_dealer_portal/delete/" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="id" value="{{vehicle.id}}">
+          <input class="btn btn-danger" type="submit" value="delete">
+        </form>
+        {% comment %} <a href="/car_dealer_portal/update/ {{vehicle.id}}">Update</a> {% endcomment %}
+       {% comment %} <a href="#" class="btn btn-primary">Go somewhere</a> {% endcomment %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+</div>
+</div>
+{% endblock %}

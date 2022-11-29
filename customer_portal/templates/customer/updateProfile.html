@@ -1,0 +1,9 @@
+{% extends 'customer/base.html' %}
+
+{% block content %}
+    <form method="POST"  style="border: 1px solid black;background-color: white; opacity: 0.9; font-weight: bolder; padding: 10;">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" class="btn btn-success" value="Update"/>
+    </form>
+{% endblock content %}

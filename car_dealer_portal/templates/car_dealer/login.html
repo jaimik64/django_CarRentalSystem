@@ -1,0 +1,21 @@
+{% extends 'car_dealer/base.html' %}
+
+{% block content %}
+
+      <form class = "main_form" action="/car_dealer_portal/auth/" method="POST" class="text-white">
+        
+        {% csrf_token %}
+       <div class="col-md-12 ">
+          <lable>Username</lable> 
+          <input class="form-control" type="text" name="username">
+       </div>
+       <div class="col-md-12 ">
+        <lable>Password</lable>  
+        <input class="form-control" type="password" name="password"><br><br>
+       </div>
+       <div class="col-md-12 text-center">
+        <input class="btn btn-success" type="submit">
+
+       </div>
+      </form><br><br>
+{% endblock %}

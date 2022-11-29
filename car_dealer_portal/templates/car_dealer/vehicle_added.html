@@ -1,0 +1,12 @@
+{% extends 'car_dealer/base.html' %}
+{% block content %}
+{% csrf_token %}
+
+
+<div class="container" style="height:300px;">
+  <div class="text-center text-white" style="color: white;">
+    Vehicle added successfully ! <br><br>
+    <a href="/car_dealer_portal/index/"  class="btn btn-success">go back to home page</a>
+</div>
+</div>
+{% endblock %}

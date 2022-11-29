@@ -1,0 +1,12 @@
+{% extends 'car_dealer/base.html' %}
+{% block content %}
+{% load static %}
+
+    <div>
+        <form method="POST" enctype="multipart/form" action="">
+            {% csrf_token %}
+            
+            <button class="btn btn-success" type="submit"> Update </button>
+        </form>
+    </div>
+{% endblock %}

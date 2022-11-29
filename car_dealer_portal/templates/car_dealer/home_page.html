@@ -1,0 +1,52 @@
+{% extends 'car_dealer/base.html' %}
+{% block content %}
+{% load static %}
+
+
+
+<div class="w3-display-container" style="height:800px;" >
+  <div class="w3-display-left" style="border: 1px solid black;background-color: white; opacity: 0.9; font-weight: bolder;">
+
+  <h3 class="container" style="padding:8px"><center>Add Vehicle<center></h3>
+
+  <form class="main_form" action="/car_dealer_portal/add_vehicle/" method="post" enctype="multipart/form-data">{% csrf_token %}
+    <div class="row">  
+      <div class="col-md-6">
+        <lable>Car Name :</lable> 
+        <input class="form-control" type="text" name="car_name"><br><br>
+      </div>
+      <div class="col-md-6">
+        <lable>Color :</lable> 
+        <input class="form-control" type="text" name="color"><br><br>  
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <lable>City :</lable> 
+        <input class="form-control" type="text" name="city"><br><br>
+      </div>
+      <div class="col-md-6">
+        <lable>Pincode :</lable>
+        <input class="form-control" type="text" name="pincode"><br><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-8">
+        <lable>Description :</lable>
+        <input class="form-control" type="text" name="description"><br><br> 
+      </div>
+      <div class="col-4">
+        <lable>Capacity :</lable>
+        <input class="form-control" type="number" name="capacity">
+      </div>  
+    </div>
+    <div>
+      <lable>Car Image :</lable>
+      <input class="form-control" type="file" name="image"><br><br>  
+    </div>
+    <input class="btn btn-success" type="submit" value="Add Vehicle"><br><br>
+  <form>
+</div>
+
+
+{% endblock %}

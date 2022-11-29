@@ -1,0 +1,26 @@
+{% extends 'customer/base.html' %}
+{% block content %}
+{% comment %} <div class="w3-bar">
+  <a class="w3-bar-item w3-right w3-btn w3-teal" href="/customer_portal/login/">Login</a>
+  <a class="w3-bar-item w3-right w3-btn w3-teal" href="/">Home</a>
+</div> {% endcomment %}
+
+<div class="Register"  style="height:1000px;">
+<div class="w3-display-middle">
+</div>
+<form class="CustomerForm" action="/customer_portal/registration/" method="POST">{% csrf_token %}
+  <h3 class="sh">Registration Form</h3>
+
+  <lable>FirstName : </lable><input class="w3-input" type="text" name="firstname"><br><br>
+  <lable>LastName : </lable><input class="w3-input" type="text" name="lastname"><br><br>
+  <lable>Username : </lable><input class="w3-input" type="text" name="username"><br><br>
+  <lable>Password : </lable><input class="w3-input" type="password" name="password"><br><br>
+  <lable>Email : </lable><input class="w3-input" type="text" name="email"><br><br>
+  <lable>Mobile : </lable><input class="w3-input" type="text" name="mobile"><br><br>
+  <lable>City : </lable><input class="w3-input" type="text" name="city"><br><br>
+  <lable>Pincode : </lable><input class="w3-input" type="text" name="pincode"><br><br>
+  <input class="Customerbtn" type="submit"><br><br>
+</form>
+
+</div>
+{% endblock %}

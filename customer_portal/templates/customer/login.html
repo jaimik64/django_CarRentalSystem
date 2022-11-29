@@ -1,0 +1,35 @@
+{% extends 'customer/base.html' %}
+
+{% block content %}
+
+{% if form.errors %}
+
+{% endif %}
+
+<div class="container text-dark" style="border: 1px solid black;background-color: white; opacity: 0.9; font-weight: bolder;">
+  <div class="mb-2 mx-5 box">
+    <div class="text-center text-lg">
+      <label class="title">Log In Page</label>
+    </div>
+
+    <form class="container" action="/customer_portal/auth/" method="POST">{% csrf_token %}
+      <div class="row">
+        <label class="col-sm-2 col-form-label">Username </label> 
+        <div class="col-sm-6">
+          <input class="form-control " type="text" name="username"><br><br>  
+        </div>
+      </div>
+      
+      <div class="row">
+        <label class="col-sm-2 col-form-label">Password </label> 
+        <div class="col-sm-6">
+          <input class="form-control" type="password" name="password"><br><br>
+        </div>
+      </div>
+      <div class="text-center">
+        <input class="btn btn-success" type="submit" value="Log in ">  
+      </div>
+    </form><br><br>
+  </div>
+</div>
+{% endblock %}

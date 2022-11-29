@@ -1,0 +1,28 @@
+{% extends 'customer/base.html' %}
+{% block content %}
+
+
+<h4 class="text-center text-white" style="padding-top:50">Search Results</h4>
+
+<div class="text-center" style="padding:100px;">
+  <div class="card-deck">
+    {% for vehicle in request.session.vehicles_list %}
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{vehicle.image}}" alt="Card image cap">
+      <div class="card-body text-dark">
+        <h5 class="card-title">{{vehicle.name}}</h5>
+        <p class="text-dark">Capacity: {{vehicle.capacity}}, Color: {{vehicle.color}}</p>
+        <form action = "/customer_portal/rent/" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="id" value="{{vehicle.id}}">
+          <input class="btn btn-success" type="submit" value="rent">
+          </form>
+        {% comment %} <a href="/car_dealer_portal/update/ {{vehicle.id}}">Update</a> {% endcomment %}
+        {% comment %} <a href="#" class="btn btn-primary">Go somewhere</a> {% endcomment %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+</div>
+{% endblock %}

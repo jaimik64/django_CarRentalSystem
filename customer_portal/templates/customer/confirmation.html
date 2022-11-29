@@ -1,0 +1,30 @@
+{% extends 'customer/base.html' %}
+{% block content %}
+
+<div class="container">
+  <div class="card">
+    <img src="{{MEDIA_URL}}{{vehicle.img.url}}" class="card-img-top" />
+    <div class="card-body text-dark">
+      <h5>{{vehicle.car_name}}</h5>
+      <p class="text-dark">
+        Price : {{cost_per_day}} / day
+      </p>
+    </div>
+    <form class="card-footer" action="/customer_portal/confirmed/" method="post">
+      {% csrf_token %}
+      <input type="hidden" value="{{vehicle.id}}" name="id">
+      <div class="row">
+        <div class="col">
+          <input class="form-control" type="number" name="days" placeholder="Enter Number of Days"><br><br>
+        </div>
+        <div class="col">
+          <input class="btn btn-success" type="submit" value="Confirm Order"><br><br>
+        </div>
+      </div>
+      <br><br>
+    </form>
+  </div>
+
+  
+</div>
+{% endblock %}

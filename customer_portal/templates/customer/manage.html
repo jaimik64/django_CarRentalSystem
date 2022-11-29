@@ -1,0 +1,53 @@
+{% extends 'customer/base.html' %}
+{% block content %}
+<div style="border: 1px solid black;background-color: white; opacity: 0.9; font-weight: bolder;"> 
+<h4 class="text-center text-dark">Your orders</h4>
+<div class="text-dark" style="padding:100px;">
+  
+<table class="table text-dark">
+  <thead>
+    <tr>
+      <td>name  </td>
+      <td>days  </td>
+      <td>rent  </td>
+      <td>capacity  </td>
+      <td>description  </td>
+      <td>pincode  </td>
+      {% comment %} <td>Manage  </td> {% endcomment %}
+      <td>delete  </td>
+    </tr>
+  </thead>
+  <tbody>
+
+{% for order in od %}
+  
+  <tr>
+    <td>{{order.vehicle.car_name}}</td>
+    <td>{{order.days}}</td>
+    <td>{{order.rent}}</td>
+    <td>{{order.vehicle.capacity}}</td>
+    <td>{{order.vehicle.description}}</td>
+    <td>{{order.vehicle.area.pincode}}</td>
+    {% comment %} <td>
+      <form action = "/customer_portal/update/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{order.id}}">
+        <input class="btn btn-warning" type="submit" value="Update">
+      </form>
+    </td> {% endcomment %}
+    
+    <td><form action = "/customer_portal/delete/" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="id" value="{{order.id}}">
+          <input class="btn btn-danger" type="submit" value="delete">
+        </form>
+    </td>
+    
+  </tr>
+
+{% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+{% endblock %}

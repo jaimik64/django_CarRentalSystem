@@ -1,0 +1,22 @@
+{% extends 'customer/base.html' %}
+{% block content %}
+
+<div class="container" style="height:300px;">
+
+
+  <form class="form-container" enctype="multipart/form-data" action="/customer_portal/search_results/" method="post">
+    {% csrf_token %}
+    <br><br>
+    <div class="row">
+      <div class="col-sm-4">
+        <input class="form-control" type="text" name="city" placeholder="Enter City"><br><br>
+      </div>
+      <div class="col-lg-4"> 
+        <input class="btn btn-success" type="submit" value="search">
+      </div>
+    </div>
+  </form>
+
+</div>
+
+{% endblock %}

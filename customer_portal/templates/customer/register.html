@@ -1,0 +1,60 @@
+{% extends 'customer/base.html' %}
+{% block content %}
+
+<div class="container">
+  <div>
+
+    <form class="main_form" action="/customer_portal/registration/" method="POST">
+      {% csrf_token %}
+
+      <div class="row">
+        <div class="col-md-6">
+          <lable>FirstName</lable>
+          <input class="form-control" type="text" name="firstname"><br><br>
+
+        </div>
+        <div class="col-md-6">
+          <lable>LastName </lable>
+          <input class="form-control" type="text" name="lastname"><br><br>
+        </div>
+          
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <lable>Username  </lable>
+          <input class="form-control" type="text" name="username"><br><br>
+        </div>
+        <div class="col-md-6">
+          <lable>Password  </lable>
+          <input class="form-control" type="password" name="password"><br><br>
+        </div>
+      </div> 
+
+      <div class="row">
+        <div class="col-md-6">
+          <lable>Email  </lable>
+          <input class="form-control" type="text" name="email"><br><br>
+        </div>
+        <div class="col-md-6">
+          <lable>Mobile  </lable>
+          <input class="form-control" type="text" name="mobile"><br><br>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <lable>City</lable>
+          <input class="form-control" type="text" name="city"><br><br>
+        </div>
+        <div class="col-md-6">
+          <lable>Pincode </lable>
+          <input class="form-control" type="text" name="pincode"><br><br>
+        </div>
+      </div>
+      <input class="w3-btn w3-teal" type="submit"><br><br>
+    </form>
+
+  </div>
+</div>
+{% endblock %}
